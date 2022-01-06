@@ -4,9 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class PageObjectTest {
-	private String BROWSER="chrome";
-			//System.getProperty("browser");
+	private String BROWSER=System.getProperty("browser");
 	WebDriver driver;
+
+
+	public String getBROWSER() {
+		return BROWSER;
+	}
 
 
 	public void SetupDriver() {

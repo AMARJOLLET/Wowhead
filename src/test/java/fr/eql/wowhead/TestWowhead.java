@@ -24,7 +24,7 @@ public class TestWowhead extends PageObjectTest {
 	public void navigateWowhead() throws FileNotFoundException {
 		String Search = "lardeur";
 		int index = 15;		// Index de la liste .get du CSV
-		int NombreStatVerifier = 14;
+		int NombreStatVerifier = 1;
 
 		PageAccueil pageAccueil = new PageAccueil(driver);
 		LOGGER.info("INITIALISATION");
@@ -45,7 +45,13 @@ public class TestWowhead extends PageObjectTest {
 				LOGGER.info("ITEM " + (i + 1));
 				PageItem pageItem = pageLoot.clickItem(i);
 				
-				assertEquals("rgba(0, 112, 221, 1)", pageLoot.rarete); // Assert de la rareté de l'item
+				if (getBROWSER() == "chrome") {
+					assertEquals("rgba(0, 112, 221, 1)", pageLoot.rarete); // Assert de la rareté de l'item
+				}
+				else {
+					assertEquals("rgb(0, 112, 221)", pageLoot.rarete); // Assert de la rareté de l'item
+
+				}
 					
 				// Boucle pour avoir les stats de l'item
 	
@@ -54,8 +60,10 @@ public class TestWowhead extends PageObjectTest {
 				}
 				for (int k=0;k<NombreStatVerifier;k++) {
 					Assert.assertTrue(pageItem.stat.contains(pageItem.listAllStatItem.get(index+k))); // Assert de toutes les stats de l'item
+					//LOGGER.info("\n"+pageItem.stat+"\n");
+					//LOGGER.info("\n"+pageItem.listAllStatItem.get(index+k)+"\n");
 				}
-				
+
 				index = index +15;
 				LOGGER.info("ITEM " + (i + 1) + " EST OK");
 				driver.navigate().back();
