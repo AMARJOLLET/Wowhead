@@ -13,7 +13,7 @@ public abstract class PageObjectTest {
 	}
 
 
-	public void SetupDriver() {
+	public void SetupDriver() throws Exception {
 		driver = ChoixDriver.choisirNavigateur(BROWSER);
 		driver.manage().window().maximize();
 		driver.get("https://fr.wowhead.com/");

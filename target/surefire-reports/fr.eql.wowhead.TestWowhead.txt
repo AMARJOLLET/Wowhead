@@ -1,35 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: fr.eql.wowhead.TestWowhead
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 10.817 sec <<< FAILURE!
-navigateWowhead(fr.eql.wowhead.TestWowhead)  Time elapsed: 10.617 sec  <<< ERROR!
-org.openqa.selenium.ElementClickInterceptedException: Element <button class="notifications-dialog-buttons-decline btn" type="button"> is not clickable at point (1018,73) because another element <div class="onetrust-pc-dark-filter ot-fade-in"> obscures it
-Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
-System info: host: 'DESKTOP-74LVUSK', ip: '192.168.1.25', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\alexi\AppData\Local\Temp\rust_mozprofile.iAT1I5u1UrbS, moz:geckodriverVersion=0.24.0, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, moz:headless=false, platform=WINDOWS, proxy=Proxy(), moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, acceptInsecureCerts=true, browserVersion=95.0.2, moz:shutdownTimeout=60000, platformVersion=10.0, moz:processID=1276, browserName=firefox, moz:buildID=20211218203254, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, moz:webdriverClick=true}]
-Session ID: d27e1855-783f-4dd5-a0be-3590d4afccc5
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy10.click(Unknown Source)
-	at fr.eql.wowhead.PageAccueil.clickAcceptNotification(PageAccueil.java:27)
-	at fr.eql.wowhead.TestWowhead.navigateWowhead(TestWowhead.java:33)
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 33.582 sec <<< FAILURE!
+navigateWowhead(fr.eql.wowhead.TestWowhead)  Time elapsed: 33.37 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at fr.eql.wowhead.TestWowhead.navigateWowhead(TestWowhead.java:62)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -62,17 +40,17 @@ Session ID: d27e1855-783f-4dd5-a0be-3590d4afccc5
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-navigateWowhead(fr.eql.wowhead.TestWowhead)  Time elapsed: 10.622 sec  <<< ERROR!
+navigateWowhead(fr.eql.wowhead.TestWowhead)  Time elapsed: 33.374 sec  <<< ERROR!
 org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
 Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
 System info: host: 'DESKTOP-74LVUSK', ip: '192.168.1.25', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: driver.version: RemoteWebDriver
-Capabilities [{moz:profile=C:\Users\alexi\AppData\Local\Temp\rust_mozprofile.iAT1I5u1UrbS, moz:geckodriverVersion=0.24.0, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, moz:headless=false, platform=WINDOWS, proxy=Proxy(), moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, acceptInsecureCerts=true, browserVersion=95.0.2, moz:shutdownTimeout=60000, platformVersion=10.0, moz:processID=1276, browserName=firefox, moz:buildID=20211218203254, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, moz:webdriverClick=true}]
-Session ID: d27e1855-783f-4dd5-a0be-3590d4afccc5
+Capabilities [{moz:profile=C:\Users\alexi\AppData\Local\Temp\rust_mozprofile.9gUbV2WXe1H4, moz:geckodriverVersion=0.24.0, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, moz:headless=false, platform=WINDOWS, proxy=Proxy(), moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, acceptInsecureCerts=true, browserVersion=95.0.2, moz:shutdownTimeout=60000, platformVersion=10.0, moz:processID=26652, browserName=firefox, moz:buildID=20211218203254, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, moz:webdriverClick=true}]
+Session ID: 5438f9fc-51ce-42bd-8b52-4f5292e1668b
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
 	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:482)
-	at fr.eql.wowhead.PageObjectTest.teardown(PageObjectTest.java:28)
+	at fr.eql.wowhead.PageObjectTest.teardown(PageObjectTest.java:27)
 	at fr.eql.wowhead.TestWowhead.Close(TestWowhead.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -118,7 +96,7 @@ Caused by: java.lang.RuntimeException: Couldn't detect pid
 	at org.openqa.selenium.os.ProcessUtils.getProcessId(ProcessUtils.java:194)
 	at org.openqa.selenium.os.ProcessUtils.killWinProcess(ProcessUtils.java:127)
 	... 41 more
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private final long java.lang.ProcessImpl.handle accessible: module java.base does not "opens java.lang" to unnamed module @470e2030
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private final long java.lang.ProcessImpl.handle accessible: module java.base does not "opens java.lang" to unnamed module @6f75e721
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
