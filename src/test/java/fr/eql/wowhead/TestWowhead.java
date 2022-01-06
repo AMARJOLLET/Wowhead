@@ -26,7 +26,7 @@ public class TestWowhead extends PageObjectTest {
 
 		String Search = "lardeur";
 
-		PageAccueil pageAccueil = new PageAccueil(ChoixDriver.driver);
+		PageAccueil pageAccueil = new PageAccueil(driver);
 		LOGGER.info("INITIALISATION");
 		// AcceptAll
 		pageAccueil.clickAcceptCookie();
@@ -55,7 +55,7 @@ public class TestWowhead extends PageObjectTest {
 			statitem.add(pageItem.stat);
 			index = index +15;
 			LOGGER.info("ITEM " + (i + 1) + " EST OK");
-			ChoixDriver.driver.navigate().back();
+			driver.navigate().back();
 		}
 
 		/*

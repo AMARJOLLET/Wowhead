@@ -5,23 +5,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class PageObjectTest {
 	private String BROWSER=System.getProperty("browser");
-	private String TestBROWSER="chrome";
+	WebDriver driver;
+
 
 	public void SetupDriver() {
-		ChoixDriver choixDriver = new ChoixDriver();
-		
-		choixDriver.choisirNavigateur(BROWSER);
-		
-		ChoixDriver.driver.manage().window().maximize();
-		ChoixDriver.driver.get("https://fr.wowhead.com/");
+		driver = ChoixDriver.choisirNavigateur(BROWSER);
+		driver.manage().window().maximize();
+		driver.get("https://fr.wowhead.com/");
 	}
 
 	public void cleanUp() {
-		ChoixDriver.driver.manage().deleteAllCookies();
+		driver.manage().deleteAllCookies();
 	}
 
 	public void teardown() {
-		ChoixDriver.driver.quit();
+		driver.quit();
 	}
 
 }
