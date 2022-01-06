@@ -16,6 +16,10 @@ public class PageLoot extends PageObject {
 
 	@FindBy (xpath = "//div[@id='tab-drops']//a[@class='q3 listview-cleartext']")
     List<WebElement> loot_list;
+	@FindBy (xpath = "//div[@id='tab-drops']//a[@class='q3 listview-cleartext']")
+    List<WebElement> rarete_list;
+	
+	
 	
 	
     public PageItem clickItem(int n) {

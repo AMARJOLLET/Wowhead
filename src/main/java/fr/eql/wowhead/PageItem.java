@@ -14,20 +14,20 @@ public class PageItem extends PageObject {
 	public PageItem(WebDriver driver) {
 		super(driver);
 	}
-
-	String stat;
 	ArrayList<String> listAllStatItem = new ArrayList<String>();
-
+	String stat;
 
 	@FindBy(xpath = "//table[@style='width: 100%;']/tbody")
 	List<WebElement> stat_list;
 
-	public void getAllStat(int n) {
+	public void getAllStat(int n) throws FileNotFoundException {
 		waitElementsXpath("//table[@style='width: 100%;']/tbody");
+		LectureCSV();
 		stat = stat + stat_list.get(n).getText();
 	}
 
 	public void LectureCSV() throws FileNotFoundException {
+
 		String fileName = "src\\main\\resources\\ItemLardeur.csv";
 		Scanner scanner = new Scanner(new File(fileName));
 		scanner.useDelimiter(";");
@@ -44,8 +44,8 @@ public class PageItem extends PageObject {
 				System.out.println(listAllStatItem.get(i));
 			}
 			
-		}
-*/
+		}*/
+
 	
 
 
