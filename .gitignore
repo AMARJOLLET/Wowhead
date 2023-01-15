@@ -1,0 +1,10 @@
+/target
+/.idea/*
+!/.idea/.name
+/*.iml
+/logs
+/dataCollect
+/snapshots
+*.log
+/debug.log
+debug.log
