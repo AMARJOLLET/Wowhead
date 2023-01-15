@@ -47,7 +47,11 @@ public class PageBoss extends AbstractFullPage {
     }
 
     public boolean clickOnItem(String itemName) {
-        String xpath = "//a[contains(@href,\""+itemName+"\")]";
-        return outils.clickOnElementBoolean(driver, wait, xpath);
+        try {
+            String xpath = "//a[contains(@href,\""+itemName+"\")]";
+            return outils.clickOnElementBoolean(driver, wait, xpath);
+        } catch (Exception e){
+            return false;
+        }
     }
 }

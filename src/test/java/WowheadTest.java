@@ -2,11 +2,12 @@ import Wowhead.PageObject.PageAccueil;
 import Wowhead.PageObject.PageBoss;
 import org.junit.jupiter.api.Test;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class WowheadTest extends AbstractTest{
+public class WowheadTest extends AbstractSelenium {
     String[] listBossName = {
             "Lardeur",
             "Magmagueule",
@@ -15,7 +16,7 @@ public class WowheadTest extends AbstractTest{
     String url = "https://www.wowhead.com/fr";
 
     @Test
-    void run() throws InterruptedException {
+    public void test1() throws InterruptedException {
 
         LOGGER.info("Ouverture de la page");
         driver.get(url);
@@ -56,7 +57,5 @@ public class WowheadTest extends AbstractTest{
             });
             driver.get(url);
         }
-
-
     }
 }
