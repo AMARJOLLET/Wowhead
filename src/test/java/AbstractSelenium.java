@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Logging;
@@ -24,10 +25,12 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class AbstractSelenium extends Logging {
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected String os = "windows";
     protected String navigateur = "chrome";
     protected int implicitlyWait = 5;
     protected int explicitlyWait = 20;
@@ -54,25 +57,41 @@ public class AbstractSelenium extends Logging {
         LOGGER.info("Setup driver");
         switch (navigateur.toLowerCase()){
             case "firefox" :
-                System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
-                driver = new FirefoxDriver();
-                break;
-            case "chrome" :
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.setCapability("chrome.switches", Collections.singletonList("--ignore-certificate-errors"));
+                if(os.equals("windows")){
+                    System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
+                } else if (os.equals("linux")){
+                    System.setProperty("webdriver.gecko.driver", "/home/firefoxcnaf/geckodriver");
+                }
+                FirefoxOptions options = new FirefoxOptions();
+                options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT);
+                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 if (proxyOn) {
                     options.setProxy(seleniumProxy);
                     options.setAcceptInsecureCerts(true);
                     options.setCapability(CapabilityType.PROXY, seleniumProxy);
                 }
-                options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT);
-                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                driver = new FirefoxDriver();
+                break;
+            case "chrome" :
+                if(os.equals("windows")){
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
+                } else if (os.equals("linux")){
+                    System.setProperty("webdriver.chrome.driver", "/home/firefoxcnaf/chromedriver");
+                }
+                ChromeOptions optionsChrome = new ChromeOptions();
+                optionsChrome.setCapability("chrome.switches", Collections.singletonList("--ignore-certificate-errors"));
+                if (proxyOn) {
+                    optionsChrome.setProxy(seleniumProxy);
+                    optionsChrome.setAcceptInsecureCerts(true);
+                    optionsChrome.setCapability(CapabilityType.PROXY, seleniumProxy);
+                }
+                optionsChrome.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT);
+                optionsChrome.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 Map<String, Object> prefs = new HashMap<>();
                 prefs.put("download.prompt_for_download", false);
                 prefs.put("plugins.always_open_pdf_externally", true);
-                options.setExperimentalOption("prefs", prefs);
-                driver = new ChromeDriver(options);
+                optionsChrome.setExperimentalOption("prefs", prefs);
+                driver = new ChromeDriver(optionsChrome);
                 break;
         }
         driver.manage().window().maximize();
